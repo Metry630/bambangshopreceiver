@@ -68,16 +68,16 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [X] Commit: `Implement list_all_as_string function in Notification repository.`
     -   [X] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Commit: `Implement receive_notification function in Notification service.`
-    -   [ ] Commit: `Implement receive function in Notification controller.`
-    -   [ ] Commit: `Implement list_messages function in Notification service.`
-    -   [ ] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   [X] Commit: `Create Notification service struct skeleton.`
+    -   [X] Commit: `Implement subscribe function in Notification service.`
+    -   [X] Commit: `Implement subscribe function in Notification controller.`
+    -   [X] Commit: `Implement unsubscribe function in Notification service.`
+    -   [X] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [X] Commit: `Implement receive_notification function in Notification service.`
+    -   [X] Commit: `Implement receive function in Notification controller.`
+    -   [X] Commit: `Implement list_messages function in Notification service.`
+    -   [X] Commit: `Implement list function in Notification controller.`
+    -   [X] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -89,3 +89,9 @@ This is the place for you to write reflections:
 
 2. Rust does not allow changes to static variables like Java does for security reasons. Rust is a language that can be run concurrently so it has risks such as race conditions and lost updates. Mutable data (including static data) is susceptible to errors in concurrent programming, and the problems are not always easy to identify. Immutability increases the predictability of parallel/concurrent programs, making them easier to manage.
 #### Reflection Subscriber-2
+
+1. Lib.rs contains Rust dependencies for a web application and initial configuration settings sourced from the .env file. Notable dependencies include lazy_static for variable initialization, dotenv for configuration, rocket for web applications, and reqwest for HTTP requests. These dependencies are specified with static variables and a configuration struct. Additionally, error handling modules are implemented.
+
+2. Implementing separate publisher and subscriber instances facilitates adding multiple subscribers. Each subscriber can subscribe to a product, and the main app can handle requests to multiple subscribers concurrently. However, spawning more than one main app is complex due to fixed publisher root URLs and the need for port configuration and database consistency.
+
+3. I haven't attempted to create new tests yet. I have only modified existing tests, such as changing the receiver port in order to access different subscriber instances.
