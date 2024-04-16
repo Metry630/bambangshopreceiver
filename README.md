@@ -59,15 +59,15 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   Open another new terminal, edit `ROCKET_PORT` in `.env` to `8003`, then execute `cargo run`.
 
 ## Mandatory Checklists (Subscriber)
--   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
+-   [X] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [ ] Commit: `Create Notification model struct.`
-    -   [ ] Commit: `Create SubscriberRequest model struct.`
-    -   [ ] Commit: `Create Notification database and Notification repository struct skeleton.`
-    -   [ ] Commit: `Implement add function in Notification repository.`
-    -   [ ] Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
--   **STAGE 3: Implement services and controllers**
+    -   [X] Commit: `Create Notification model struct.`
+    -   [X] Commit: `Create SubscriberRequest model struct.`
+    -   [X] Commit: `Create Notification database and Notification repository struct skeleton.`
+    -   [X] Commit: `Implement add function in Notification repository.`
+    -   [X] Commit: `Implement list_all_as_string function in Notification repository.`
+    -   [X] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
+-   **STAGE 2: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
     -   [ ] Commit: `Implement subscribe function in Notification controller.`
@@ -85,5 +85,7 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+1. RwLock (Read-Write Lock) is a type of lock where data can be accessed (read) by multiple threads simultaneously, but data can only be edited (written) by one thread. Mutex (Mutual Exclusion) is a type of lock where data can only be fully accessed (either read or write) by one thread at a time. In the context of notifications, we don't want all threads to be able to edit (only the creator of the notification should be allowed to edit it), as it could compromise data integrity. However, we still want notification data to be accessible to multiple threads (in this case, subscribers) at the same time. If not, each subscriber would have to queue up to access a specific notification; this is certainly inefficient.
 
+2. Rust does not allow changes to static variables like Java does for security reasons. Rust is a language that can be run concurrently so it has risks such as race conditions and lost updates. Mutable data (including static data) is susceptible to errors in concurrent programming, and the problems are not always easy to identify. Immutability increases the predictability of parallel/concurrent programs, making them easier to manage.
 #### Reflection Subscriber-2
